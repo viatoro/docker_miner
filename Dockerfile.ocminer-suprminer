@@ -12,5 +12,5 @@ RUN apt-get -y install git automake libssl-dev libcurl4-openssl-dev
 #RUN chown miner:miner /home/miner/run-miner.sh
 
 USER miner
-RUN cd && git clone https://github.com/ocminer/suprminer.git build && cd ~/build && git checkout tags/1.6 && ./autogen.sh && ./configure --with-cuda=/usr/local/cuda && make -j4 && cp ~/build/ccminer ~/ccminer && rm -rf ~/build
+RUN cd && git clone https://github.com/ocminer/suprminer.git build && cd ~/build && ./autogen.sh && ./configure --with-cuda=/usr/local/cuda && make -j4 && cp ~/build/ccminer ~/ccminer && rm -rf ~/build
 ENTRYPOINT ["/home/miner/ccminer"]
